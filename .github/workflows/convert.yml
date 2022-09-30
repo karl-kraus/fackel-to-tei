@@ -21,7 +21,7 @@ jobs:
     - name: extract md
       run: |
         python make_text_files.py
-    - name: Copy processed data to freud-digital/frd-archiv
+    - name: Copy processed data to karl-kraus/fackel-texte
       uses: dmnemec/copy_file_to_another_repo_action@main
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
