@@ -1,4 +1,4 @@
-text_title,start_file,f_jg,f_nr,start_page_value,start_page,year,month,day,end_file,end_page,date,node_count,title_id,par_id
+text_title,start_file,f_jg,f_nr,start_page_value,start_page,year,month,day,date,end_file,end_page,node_count,title_id,parid
 (Vorwort des Herausgebers.),FK-01-001_n0001.xml,01,001,n0001,1,1899,04,01,1899-04-01,FK-01-001_n0003.xml,3,1484,text__tid_00001.xml,pr33
 DIE UNABHÄNGIGEN.,FK-01-001_n0004.xml,01,001,n0004,4,1899,04,01,1899-04-01,FK-01-001_n0008.xml,8,2757,text__tid_00002.xml,pr41
 (Kein Zeitungsstempel.),FK-01-001_n0008.xml,01,001,n0008,8,1899,04,01,1899-04-01,FK-01-001_n0008.xml,8,439,text__tid_00003.xml,pr53

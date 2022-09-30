@@ -132,3 +132,4 @@ downloaded_data/
 data/
 tmp/
 data_orig/
+.~lock.texts.csv#

@@ -4,7 +4,6 @@ import jinja2
 import lxml.etree as ET
 
 import os
-import pandas as pd
 import shutil
 
 from acdh_tei_pyutils.tei import TeiReader
@@ -51,9 +50,9 @@ csv_cols = [
     'title_id',
     'par_id'
 ]
+first_row = True
 with open(csv_file, 'w') as csvfile:
     writer = csv.writer(csvfile)
-    writer.writerow(csv_cols)
     for x in tqdm(files, total=len(files)):
         _, tail = os.path.split(x)
         doc = TeiReader(x)
@@ -100,6 +99,9 @@ with open(csv_file, 'w') as csvfile:
                 item["node_count"] = len(container)
                 item['title_id'] = title_id
                 item["parid"] = par_id
+                if first_row:
+                    writer.writerow([y for y in item.keys()])
+                    first_row = False
                 writer.writerow([y for y in item.values()])
                 item['content'] = [ET.tostring(node).decode('utf-8') for node in container]
                 with open(f"{os.path.join('data', 'fackel_out', title_id)}", 'w') as f:
