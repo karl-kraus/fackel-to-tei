@@ -1,11 +1,11 @@
-name: ARCHE-Ingest
+name: Convert XMLs
 
 on:
   workflow_dispatch
 
 jobs:
   build_pages:
-    name: Ingest Data into ARCHE
+    name: Convert XMLs
     runs-on: ubuntu-latest
     env:
       GITLAB_TOKEN: ${{secrets.GITLAB_TOKEN}}
