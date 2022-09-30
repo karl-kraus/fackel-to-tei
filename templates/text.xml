@@ -1,0 +1,28 @@
+<TEI xmlid="{{ file_name }}">
+  <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title type="main">{{ text_title }}, in: Fackel Heft {{ f_jg }}, Nr. {{ f_nr }}, {{ year }}, S. {{ start_page }}{% if end_page %}-{{ end_page }}{% endif %}</title>
+            <title type="iso-date">{{ date }}</title>
+            <title type="id">{{ id }}</title>
+            <title type="sub">Digitale Edition der Fackel-Texte</title>
+         </titleStmt>
+         <publicationStmt>
+            <p>Publication Information</p>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Information about the source</p>
+         </sourceDesc>
+      </fileDesc>
+  </teiHeader>
+  <text>
+      <body>
+         <div type="main_text">
+            <head>{{ text_title }}</head>
+            {% for x in content %}
+            {{ x|safe }}
+            {% endfor %}
+         </div>
+      </body>
+  </text>
+</TEI>

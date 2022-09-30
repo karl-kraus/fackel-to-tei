@@ -1,0 +1,34 @@
+name: ARCHE-Ingest
+
+on:
+  workflow_dispatch
+
+jobs:
+  build_pages:
+    name: Ingest Data into ARCHE
+    runs-on: ubuntu-latest
+    env:
+      GITLAB_TOKEN: ${{secrets.GITLAB_TOKEN}}
+    steps:
+    - name: Perform Checkout
+      uses: actions/checkout@v2
+    - name: Install python things
+      run: |
+        pip install -r requirements.txt
+    - name: fetch data
+      run: |
+        ./fetch_data.sh
+    - name: extract md
+      run: |
+        python make_text_files.py
+    - name: Copy processed data to freud-digital/frd-archiv
+      uses: dmnemec/copy_file_to_another_repo_action@main
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      with:
+        source_file: './data/.'
+        destination_repo: 'karl-kraus/fackel-texte'
+        destination_folder: 'data'
+        user_email: 'peter.andorfer@oeaw.ac.at.com'
+        user_name: 'csae8092'
+        commit_message: 'copy XML/TEI files from fackel-to-tei'
