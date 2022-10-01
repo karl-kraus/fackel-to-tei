@@ -111,7 +111,8 @@ with open(csv_file, 'w') as csvfile:
                 div_start = False
                 title_id = None
             if div_start:
-                container.append(elem)
+                if elem.tag in ['DIV_START', 'P', 'HR', 'NAV_HEADER' 'PAGENUMBER']:
+                    container.append(elem)
 
 print(f"converting text files from {OUT_DIR} into TEIs in {TEI_DIR}")
 xmls = sorted(glob.glob(f"{OUT_DIR}/*.xml"))
