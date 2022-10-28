@@ -19,11 +19,9 @@ OUT_DIR = 'data/fackel_out'
 TEI_DIR = 'data/editions'
 
 files = sorted(glob.glob('./data_orig/*/*.xml'))
-try:
-    shutil.rmdir('./data')
-except:
-    os.makedirs(OUT_DIR, exist_ok=True)
-    os.makedirs(TEI_DIR, exist_ok=True)
+shutil.rmtree('./data', ignore_errors=True)
+os.makedirs(OUT_DIR, exist_ok=True)
+os.makedirs(TEI_DIR, exist_ok=True))
 
 transform = ET.XSLT(ET.parse('totei.xsl'))
 
