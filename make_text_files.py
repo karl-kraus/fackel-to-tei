@@ -21,7 +21,7 @@ TEI_DIR = 'data/editions'
 files = sorted(glob.glob('./data_orig/*/*.xml'))
 shutil.rmtree('./data', ignore_errors=True)
 os.makedirs(OUT_DIR, exist_ok=True)
-os.makedirs(TEI_DIR, exist_ok=True))
+os.makedirs(TEI_DIR, exist_ok=True)
 
 transform = ET.XSLT(ET.parse('totei.xsl'))
 
@@ -109,7 +109,7 @@ with open(csv_file, 'w') as csvfile:
                 div_start = False
                 title_id = None
             if div_start:
-                if elem.tag in ['DIV_START', 'P', 'HR', 'NAV_HEADER' 'PAGENUMBER']:
+                if elem.tag in ['DIV_START' 'DIV_END', 'P', 'HR', 'NAV_HEADER' 'PAGENUMBER']:
                     container.append(elem)
 
 print(f"converting text files from {OUT_DIR} into TEIs in {TEI_DIR}")
